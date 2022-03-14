@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+            margin-top: 40px;
+            text-transform: uppercase;
+        }
+
+        .lightapp {
+            width: 100%;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        figcaption {
+            text-align: center;
+        }
+
+        .onoffbtn {
+            width: 100%;
+            margin-top: -50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        figcaption .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: brown;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input.checked+.slider {
+            background-color: #2196F3;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="bulbdata">Lights ON OFF</h1>
+    <br>
+    <main class="lightapp">
+        <figure class="lightstyle">
+            <img src="images/lightOf.jpg" alt="" id="lightid1">
+            <figcaption>
+                <p>Light ON OFF</p>
+            </figcaption>
+        </figure>
+        <figure class="lightstyle">
+            <img src="images/lightOf.jpg" alt="" id="lightid2">
+            <figcaption>
+                <p>Light ON OFF</p>
+            </figcaption>
+        </figure>
+        <figure class="lightstyle">
+            <img src="images/lightOf.jpg" alt="" id="lightid3">
+            <figcaption>
+                <p>Light ON OFF</p>
+            </figcaption>
+        </figure>
+        <figure class="lightstyle">
+            <img src="images/lightOf.jpg" alt="" id="lightid4">
+            <figcaption>
+                <p>Light ON OFF</p>
+            </figcaption>
+        </figure>
+        <figure class="lightstyle">
+            <img src="images/lightOf.jpg" alt="" id="lightid5">
+            <figcaption>
+                <p>Light ON OFF</p>
+            </figcaption>
+        </figure>
+    </main>
+    <div class="onoffbtn">
+        <label class="switch">
+            <input type="checkbox"><span class="slider" onclick="tubelight()"></span>
+
+        </label>
+    </div>
+
+    <script>
+        const tubelight = () => {
+            let btext = document.getElementById('bulbdata');
+            for (x = 1; x < 6; x++) {
+                let bid = document.getElementById('lightid'.concat(x));
+                if (bid.src.match('lightOn')) {
+                    bid.src = 'images/lightOf.jpg';
+                    btext.innerHTML = "Light OFF"
+                    btext.style.color = "black";
+                } else {
+                    bid.src = 'images/lightOn.jpg';
+                    btext.innerHTML = "Light ON";
+                    btext.style.color = "red";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
